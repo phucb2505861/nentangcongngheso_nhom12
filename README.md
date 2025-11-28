@@ -7,4 +7,4 @@ Dự án được xây dựng với các tính năng chính về **Học tập**
 - Thêm Quiz AI, Anh, Công nghệ số
 - Thêm mini-game Card Match & Guess Number
 - Thêm Máy tính khoa học & Vòng quay
-- Thêm tính năng Chuyển đổi đơn vị
+- Thêm tính năng Chuyển đổi đơn vị (phát triển trang công cụ lần 1)
