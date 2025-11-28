@@ -33,6 +33,7 @@
             <section id="game-selector">
                 <button onclick="showGame('calculator')">📱 Máy tính</button>
                 <button onclick="showGame('vongquay')">🎡 Vòng quay may mắn</button>
+                <button onclick="showGame('converter')" id="btn-converter">🔄 Chuyển đổi</button>
             </section>
 
             <section id="game-area">
@@ -132,6 +133,61 @@
                         </div>
                         <div class="list" id="list"></div>
                         <div id="result-vongquay" aria-live="polite"></div> 
+                    </div>
+                </div>
+                <div id="converter" class="game-box">
+                    <div class="converter-shell">
+                        <h3 class="calculator-title">🔄 Chuyển Đổi Đơn Vị</h3>
+                        
+                        <div class="conv-group">
+                            <label>Nhập số:</label>
+                            <input type="number" id="conv-input" placeholder="Nhập giá trị..." oninput="convertNow()">
+                        </div>
+
+                        <div class="conv-flex">
+                            <div class="conv-group">
+                                <label>Từ:</label>
+                                <select id="conv-from" onchange="convertNow()">
+                                    <optgroup label="Độ dài">
+                                        <option value="m">Mét (m)</option>
+                                        <option value="km">Kilômét (km)</option>
+                                        <option value="cm">Centimét (cm)</option>
+                                        <option value="mm">Milimét (mm)</option>
+                                        <option value="inch">Inch</option>
+                                    </optgroup>
+                                    <optgroup label="Khối lượng">
+                                        <option value="kg">Kilogam (kg)</option>
+                                        <option value="g">Gam (g)</option>
+                                        <option value="lb">Pound (lb)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="conv-icon">➔</div>
+
+                            <div class="conv-group">
+                                <label>Sang:</label>
+                                <select id="conv-to" onchange="convertNow()">
+                                    <optgroup label="Độ dài">
+                                        <option value="m">Mét (m)</option>
+                                        <option value="km">Kilômét (km)</option>
+                                        <option value="cm">Centimét (cm)</option>
+                                        <option value="mm">Milimét (mm)</option>
+                                        <option value="inch">Inch</option>
+                                    </optgroup>
+                                    <optgroup label="Khối lượng">
+                                        <option value="kg">Kilogam (kg)</option>
+                                        <option value="g">Gam (g)</option>
+                                        <option value="lb">Pound (lb)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="conv-result-box">
+                            <span>Kết quả:</span>
+                            <div id="conv-result">0</div>
+                        </div>
                     </div>
                 </div>
                 

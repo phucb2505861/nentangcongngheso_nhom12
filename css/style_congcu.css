@@ -355,3 +355,98 @@ canvas{display:block; margin:10px auto; background:transparent; font-size: 30px;
     font-weight: 800;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* mờ, không quá đậm */
 }
+
+/* =========================
+   BỘ CHUYỂN ĐỔI ĐƠN VỊ (MỚI)
+   ========================= */
+.converter-shell {
+    width: 500px;
+    max-width: 100%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.conv-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.conv-group label {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 14px;
+}
+
+.converter-shell input, 
+.converter-shell select {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background: #f8fafc;
+    outline: none;
+    transition: 0.2s;
+    width: 100%;
+}
+
+.converter-shell input:focus,
+.converter-shell select:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.conv-flex {
+    display: flex;
+    align-items: flex-end; /* Căn đáy để icon thẳng hàng input */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.conv-icon {
+    font-size: 24px;
+    color: var(--primary);
+    padding-bottom: 12px; /* Căn chỉnh mũi tên */
+    font-weight: bold;
+}
+
+.conv-result-box {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.conv-result-box span {
+    font-size: 14px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#conv-result {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 5px;
+    word-break: break-all;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+    .conv-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .conv-icon {
+        transform: rotate(90deg); /* Xoay mũi tên xuống dọc */
+        padding: 0;
+    }
+}

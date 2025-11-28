@@ -324,3 +324,57 @@ document.getElementById('quick').addEventListener('click', ()=> spin(true));
 document.addEventListener('DOMContentLoaded', () => {
     refreshList();
 });
+
+
+/* =====================
+   LOGIC CHUYỂN ĐỔI ĐƠN VỊ
+   ===================== */
+function convertNow() {
+    const input = parseFloat(document.getElementById('conv-input').value);
+    const fromUnit = document.getElementById('conv-from').value;
+    const toUnit = document.getElementById('conv-to').value;
+    const resultDisplay = document.getElementById('conv-result');
+
+    if (isNaN(input)) {
+        resultDisplay.innerText = "...";
+        return;
+    }
+
+    // Bảng quy đổi về đơn vị chuẩn (Mét và Gam)
+    // Tỷ lệ so với đơn vị chuẩn
+    const rates = {
+        // Độ dài (Chuẩn: mét)
+        'm': 1,
+        'km': 1000,
+        'cm': 0.01,
+        'mm': 0.001,
+        'inch': 0.0254,
+        
+        // Khối lượng (Chuẩn: gam)
+        'g': 1,
+        'kg': 1000,
+        'lb': 453.592
+    };
+
+    // Kiểm tra xem có đổi cùng loại không (Độ dài <-> Độ dài, Khối lượng <-> Khối lượng)
+    const lengthUnits = ['m', 'km', 'cm', 'mm', 'inch'];
+    const weightUnits = ['g', 'kg', 'lb'];
+
+    let isLength = lengthUnits.includes(fromUnit) && lengthUnits.includes(toUnit);
+    let isWeight = weightUnits.includes(fromUnit) && weightUnits.includes(toUnit);
+
+    if (!isLength && !isWeight) {
+        resultDisplay.innerText = "Sai loại đơn vị!";
+        return;
+    }
+
+    // Công thức: Giá trị * (Rate Từ / Rate Đến)
+    let result = input * (rates[fromUnit] / rates[toUnit]);
+
+    // Làm tròn đẹp: Nếu số quá lẻ thì lấy 4 số thập phân, nếu số chẵn thì giữ nguyên
+    if (!Number.isInteger(result)) {
+        result = parseFloat(result.toFixed(6)); // Lấy tối đa 6 số lẻ rồi bỏ số 0 thừa
+    }
+
+    resultDisplay.innerText = result + " " + toUnit;
+}
